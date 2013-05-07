@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" id="http://theoldreader.com">
-	<name>The Old Reader</name>
-	<description>Notifies you about unread items in your The Old Reader account</description>
-  <author href="http://linepogl.wordpress.com" email="linepogl@gmail.com">Lazare INEPOLOGLOU</author>
-  <icon src="icon-128.png"/>
+<widget xmlns="http://www.w3.org/ns/widgets" id="http://theoldreader.com" defaultlocale="en" viewmodes="minimized">
+	<name short="The Old Reader">The Old Reader Unread Items Speed Dial Extension</name>
+	<description>Displays feeds unread items in them from The Old Reader.</description>
+	<author href="http://facebook.com/themaxmayorov" email="the.max.mayorov@gmail.com" >Max Mayorov</author>
+	<icon src="icon_128.png"/> <!-- Icon source: http://www.openclipart.org/detail/17552 -->
+    <feature name="opera:speeddial" required="false">
+        <param name="url" value="http://theoldreader.com/"/>
+    </feature> 
 	<feature name="opera:share-cookies" required="true"/>
 	<access origin="http://theoldreader.com" subdomains="true" />
 </widget>
