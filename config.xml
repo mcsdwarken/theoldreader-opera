@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets" id="http://theoldreader.com" defaultlocale="en" viewmodes="minimized">
-	<name short="The Old Reader">The Old Reader Unread Items Speed Dial Extension</name>
+	<name short="The Old Reader">The Old Reader Speed Dial</name>
 	<description>Displays feeds unread items in them from The Old Reader.</description>
 	<author href="http://facebook.com/themaxmayorov" email="the.max.mayorov@gmail.com" >Max Mayorov</author>
 	<icon src="icon_128.png"/> <!-- Icon source: http://www.openclipart.org/detail/17552 -->
