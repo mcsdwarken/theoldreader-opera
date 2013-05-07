@@ -1,46 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="style.css">
 <script>
-    window.addEventListener("load", function(){
-        var button = opera.contexts.toolbar.createItem({
-            disabled : false
-            ,title: "The Old Reader"
-            ,icon: "icon-inactive.png"
-            ,badge: {
-                display: "none",
-                textContent: "",
-                color: "white",
-                backgroundColor: "rgba(211, 0, 4, 1)"
-            }
-        });
-
-        opera.contexts.toolbar.addItem(button);
-
-        button.addEventListener('click',function(){
-            var oTabs = opera.extension.tabs;
-         	if(!oTabs) return;
-   			oTabs.create({url: 'http://theoldreader.com', focused: true});
-        }, false);
-
-
+window.addEventListener('load', function() {
+        var output = document.querySelector('output');
+    	opera.contexts.speeddial.title = "The Old Reader";
+        
         var Failure = function (error) {
-            button.badge.display = "block";
-            button.badge.textContent = " ? ";
-            button.icon = "icon-inactive.png";
-            button.title = 'The Old Reader\n\n'+error;
+            output.innerHTML = '<div><img src="icon-inactive.png"/><span>The Old Reader</span></div>' + error;
+            opera.contexts.speeddial.title = "The Old Reader";
             setTimeout( function(){ Update(); } , 30000 );
         };
 
         var Success = function (feedData) {
-            var s = 'The Old Reader\n';
+            var s = '<div><img src="icon-active.png"/><span>The Old Reader</span></div><table cellspacing=0 cellpadding=0 border=0>';
             var count = 0;
             var i, folder;
             for (i=0; folder=feedData.feeds[i]; i++) {
                 var k, feed;
                 for (k=0; feed=folder.feeds[k]; k++) {
                     if (feed.unread_count) {
-                        s += '\n' + feed.title + ': ' + feed.unread_count;
+                        s += '<tr><td><b>' + feed.title + '</b>&nbsp;</td><td>' + feed.unread_count + '</td></tr>';
                         count += feed.unread_count;
                     }
                 }
@@ -50,13 +32,13 @@
                     count += folder.unread_count;
                 }
             }
-            button.badge.textContent = count;
-            button.badge.display = count == 0 ? "none" : "block";
-            button.icon = "icon-active.png";
-            button.title = s;
+            s += '</table>';
+            
+            output.innerHTML = s;
+            opera.contexts.speeddial.title = "The Old Reader (" + count + ")";
             setTimeout( function(){ Update(); } , 60000 );
         };
-
+        
         var Update = function() {
             var httpRequest = new XMLHttpRequest();
             var requestTimeout = window.setTimeout(function() { httpRequest.abort(); Failure('Error communicating with the server. Request timed out.'); }, 20000);
@@ -92,12 +74,14 @@
                 Failure('Error communicating with the server.');
             }
         };
+        
         Update();
-
-
-    }, false);
+    
+}, false);
 </script>
+<title>The Old Reader Unread Feeds</title>
 </head>
 <body>
+<output></output>
 </body>
 </html>
