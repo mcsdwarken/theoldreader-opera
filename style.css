@@ -1,0 +1,13 @@
+body { font-family: Verdana,Tahoma,Arial,sans-serif; font-size:0.7em }
+
+div {clear:both;}
+div img {float:left;}
+div span {font-size:1.1em;line-height:18px;padding:0 5px;float:left;display:block;}
+
+div.none {float:none;text-align:center; font-size:1.3em;}
+div.none img {float:none; margin:5px;}
+
+table {width:100%;}
+td {padding:2px;}
+tr:nth-child(odd)		{ background-color:#eee; }
+tr:nth-child(even)		{ background-color:#fff; }

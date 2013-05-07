@@ -15,7 +15,7 @@ window.addEventListener('load', function() {
         };
 
         var Success = function (feedData) {
-            var s = '<div><img src="icon-active.png"/><span>The Old Reader</span></div><table cellspacing=0 cellpadding=0 border=0>';
+            var s = '';
             var count = 0;
             var i, folder;
             for (i=0; folder=feedData.feeds[i]; i++) {
@@ -32,8 +32,14 @@ window.addEventListener('load', function() {
                     count += folder.unread_count;
                 }
             }
-            s += '</table>';
-            
+            if(count>0)
+            {
+            	s = '<div><img src="icon-active.png"/><span>The Old Reader</span></div><table cellspacing=0 cellpadding=0 border=0>' + s + '</table>';
+            }
+            else
+            {
+            	s = '<div class="none">Nothing new on<br/><img src="icon-128.png"/><br/>The Old Reader</div>'
+            }
             output.innerHTML = s;
             opera.contexts.speeddial.title = "The Old Reader (" + count + ")";
             setTimeout( function(){ Update(); } , 60000 );
