@@ -9,6 +9,8 @@ div.none {vertical-align:middle; display:table; height:100%;width:100%;}
 div.none div {text-align:center; font-size:1.3em;vertical-align:middle; display:table-cell;}
 div.none img {float:none; margin:5px;}
 
+div.error {font-size:1.2em; padding:5px 0;}
+
 table {width:100%;}
 td {padding:2px;}
 tr:nth-child(odd)		{ background-color:#eee; }

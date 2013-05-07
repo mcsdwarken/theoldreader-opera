@@ -9,7 +9,7 @@ window.addEventListener('load', function() {
     	opera.contexts.speeddial.title = "The Old Reader";
         
         var Failure = function (error) {
-            output.innerHTML = '<div><img src="icon-inactive.png"/><span>The Old Reader</span></div>' + error;
+            output.innerHTML = '<div><img src="icon-inactive.png"/><span>The Old Reader</span></div><div class="error">' + error + '</div>';
             opera.contexts.speeddial.title = "The Old Reader";
             setTimeout( function(){ Update(); } , 30000 );
         };
