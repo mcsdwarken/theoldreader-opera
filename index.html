@@ -22,7 +22,7 @@ window.addEventListener('load', function() {
                 var k, feed;
                 for (k=0; feed=folder.feeds[k]; k++) {
                     if (feed.unread_count) {
-                        s += '<tr><td><b>' + feed.title + '</b>&nbsp;</td><td>' + feed.unread_count + '</td></tr>';
+                        s += '<tr><td>' + feed.title + '&nbsp;</td><td><b>' + feed.unread_count + '</b></td></tr>';
                         count += feed.unread_count;
                     }
                 }

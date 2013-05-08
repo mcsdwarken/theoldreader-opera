@@ -3,7 +3,7 @@
 	<name short="The Old Reader">The Old Reader Speed Dial</name>
 	<description>Displays feeds unread items in them from The Old Reader.</description>
 	<author href="http://facebook.com/themaxmayorov" email="the.max.mayorov@gmail.com" >Max Mayorov</author>
-	<icon src="icon_128.png"/> <!-- Icon source: http://www.openclipart.org/detail/17552 -->
+	<icon src="icon-128.png"/>
     <feature name="opera:speeddial" required="false">
         <param name="url" value="http://theoldreader.com/"/>
     </feature> 
